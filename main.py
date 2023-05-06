@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, redirect, url_for, flash, request,abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -17,7 +19,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 app.config['CKEDITOR_PKG_TYPE'] = 'basic'
 ckeditor = CKEditor(app)
 Bootstrap(app)
