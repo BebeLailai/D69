@@ -28,7 +28,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 with app.app_context():
-    db.
     db.create_all()
 
 #FLASK_Login
