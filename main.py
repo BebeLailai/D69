@@ -98,6 +98,8 @@ class LoginForm(FlaskForm):
     password = StringField("password", validators=[DataRequired()])
     submit = SubmitField("Login in")
 
+with app.app_context():
+    db.create_all()
 
 def admin_only(f):
     @wraps(f)
