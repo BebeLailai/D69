@@ -27,6 +27,9 @@ Base = declarative_base()
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+with app.app_context():
+    db.
+    db.create_all()
 
 #FLASK_Login
 login_manager = LoginManager()
@@ -85,9 +88,6 @@ class Comment(db.Model,Base):
     # Comments vs. User
     post_author_id = db.Column(db.Integer, db.ForeignKey('users.id')) # MISTAKE HERE, THE AUTHOR IS the user who is leaving comments now, NOT POST'AUTHOR
     post_author = relationship("User",back_populates='comments')
-
-# with app.app_context():
-#     db.create_all()
 
 #WTForms
 class NewUserForm(FlaskForm):
